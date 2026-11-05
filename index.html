@@ -1,0 +1,2404 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ganesha | Mirka Fiebingerová</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --wine: #751b18;
+--peach: #E58E36;
+--peach-dark: #F6A64D;
+      --ink: #3b302d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+   html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+    body {
+      font-family: "Poppins", sans-serif;
+      color: var(--ink);
+      background: #fff8f1;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* NAVBAR + HERO */
+    .hero {
+  position: relative;
+  height: clamp(520px, 46vw, 720px);
+  min-height: 0;
+  background-image: url("hero.webp");
+background-size: cover;
+background-position: center top;
+background-repeat: no-repeat;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Bílý flek vlevo – bez zesvětlení Mirky */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background: radial-gradient(
+    ellipse 42% 85% at 10% 55%,
+    rgba(255, 252, 246, 0.96) 0%,
+    rgba(255, 250, 242, 0.88) 30%,
+    rgba(255, 248, 238, 0.55) 52%,
+    rgba(255, 248, 238, 0.12) 75%,
+    transparent 100%
+  );
+}
+
+    .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+max-width: none;
+  margin: auto;
+  padding: 15px 5.2%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 28px;
+  background: transparent;
+  box-shadow: none;
+  transition: background .3s ease, padding .3s ease, box-shadow .3s ease;
+}
+
+.navbar.scrolled {
+  max-width: none;
+  padding: 8px 5.2%;
+  align-items: center;
+  background: rgba(255, 248, 241, 0.97);
+  box-shadow: 0 2px 15px rgba(59, 48, 45, 0.08);
+}
+
+.navbar.scrolled .brand {
+  width: 100px;
+}
+
+.navbar.scrolled .nav-links {
+  padding-top: 0;
+}
+
+.navbar.scrolled .nav-cta {
+  margin-top: 0;
+}
+
+
+
+    .brand {
+      width: 190px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .brand img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(15px, 1.8vw, 29px);
+      padding-top: 26px;
+      white-space: nowrap;
+    }
+
+    .nav-links a {
+      position: relative;
+      font-size: 12px;
+      font-weight: 600;
+      color: #3b302d;
+      transition: color .25s ease;
+    }
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 1px;
+  background: var(--wine);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+
+
+    .nav-cta {
+      margin-top: 9px;
+      padding: 17px 27px;
+      background: linear-gradient(90deg, #E58E36 0%, #B85D3E 100%);
+      color: white;
+      border-radius: 40px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      white-space: nowrap;
+      transition: filter .25s ease;
+    }
+
+    .nav-cta:hover {
+  filter: brightness(1.12);
+}
+
+.hero-button:hover {
+  filter: brightness(1.12);
+}
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    /* HERO TEXT */
+    .hero-content {
+      position: absolute;
+      z-index: 2;
+      left: max(8.5%, calc((100% - 1260px) / 2));
+      top: 34%;
+      transform: translateY(-8%);
+      max-width: 550px;
+    }
+
+    .hero-content h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(68px, 6.3vw, 106px);
+      font-weight: 500;
+      letter-spacing: -3.5px;
+      line-height: .79;
+      color: var(--wine);
+    }
+
+    .hero-subtitle {
+      margin-top: 25px;
+      color: #522b29;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+    }
+
+    .hero-description {
+      margin-top: 22px;
+      font-size: 19px;
+      font-weight: 400;
+      line-height: 1.65;
+      letter-spacing: -.3px;
+    }
+
+    .hero-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 19px;
+      margin-top: 26px;
+      padding: 19px 30px;
+      border-radius: 40px;
+      background: linear-gradient(90deg, #E58E36 0%, #B85D3E 100%);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: filter .25s ease;
+    }
+
+    .hero-button span {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: .6;
+    }
+
+.benefits-strip {
+  background: #fff8f1;
+  border-bottom: 3px solid #ffffff;
+}
+
+.benefits-inner {
+  max-width: 1440px;
+  min-height: 55px;
+  margin: 0 auto;
+  padding: 0 5%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+}
+
+.benefits-inner > div {
+  text-align: center;
+  color: #3b302d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 0 15px;
+}
+
+.benefits-inner > div:not(:last-child) {
+  border-right: 1px solid rgba(229, 142, 54, 0.75);
+}
+
+/* SEKCE MÍSTO, KDE JE ČAS JEN PRO VÁS */
+
+.intro-section {
+  display: grid;
+  grid-template-columns: 48% 52%;
+  min-height: 360px;
+  background: #fff8f1;
+  overflow: hidden;
+}
+
+.intro-text {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 360px;
+}
+
+.intro-text-inner {
+  width: 100%;
+  max-width: 540px;
+}
+
+.intro-text h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(45px, 4.2vw, 68px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -1.8px;
+  color: var(--wine);
+}
+
+.intro-line {
+  width: 75px;
+  height: 2px;
+  margin: 25px 0 22px;
+  background: #E58E36;
+}
+
+.intro-text p {
+  max-width: 490px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.8;
+  color: var(--ink);
+}
+
+.intro-image {
+  position: relative;
+  min-height: 360px;
+  overflow: hidden;
+}
+
+.intro-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to right,
+    #fff8f1 0%,
+    rgba(255, 248, 241, 0.95) 5%,
+    rgba(255, 248, 241, 0.65) 15%,
+    rgba(255, 248, 241, 0.25) 27%,
+    transparent 40%
+  );
+}
+
+.intro-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  object-position: left center;
+}
+
+.intro-image .intro-decoration {
+  position: absolute;
+  inset: auto 0 0 auto;
+  width: 42%;
+  height: auto;
+  object-fit: contain;
+  z-index: 2;
+  pointer-events: none;
+}
+
+
+/* ==================================
+   PÉČE DLE ČASU – PC
+================================== */
+
+.time-care {
+  background: #FFF1E5;
+  border-top: 3px solid #ffffff;
+  padding: 55px 0 48px;
+}
+
+.time-care-inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 4%;
+  display: grid;
+  grid-template-columns: 35% 65%;
+  align-items: center;
+}
+
+.time-care-heading {
+  padding-right: 25px;
+}
+
+.time-care-label {
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c66c42;
+  border-bottom: 1px solid #e58e36;
+  padding-bottom: 5px;
+  margin-bottom: 22px;
+}
+
+.time-care-heading h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(29px, 2.5vw, 39px);
+  font-weight: 500;
+  line-height: 1.13;
+  letter-spacing: -1px;
+  color: var(--wine);
+}
+
+.time-care-line {
+  width: 65px;
+  height: 2px;
+  background: #e58e36;
+  margin-top: 23px;
+}
+
+.time-care-options {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.time-care-item {
+  min-width: 0;
+  min-height: 185px;
+  padding: 0 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.time-care-item:not(:first-child) {
+  border-left: none;
+  position: relative;
+}
+
+.time-care-item:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12.5%;
+  height: 75%;
+  width: 1px;
+  background: #edc9b4;
+}
+
+.time-care-number {
+  font-family: "Playfair Display", serif;
+  font-size: 43px;
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -1px;
+  color: var(--wine);
+}
+
+.time-care-unit {
+  font-family: "Montserrat", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #a94b3b;
+}
+
+.time-care-description {
+  flex: 1;
+  margin: 15px 0 20px;
+}
+
+.time-care-description h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #751b18;
+  margin: 0 0 15px;
+  min-height: 42px;
+}
+
+.time-care-description p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #000000;
+  margin: 0;
+}
+
+.time-care-button {
+  border: 1px solid #e9a37e;
+  border-radius: 30px;
+  background: transparent;
+  padding: 11px 15px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #bd6745;
+  cursor: pointer;
+  transition: background .25s ease, color .25s ease;
+}
+
+.time-care-button:hover {
+  background: #c66c42;
+  color: white;
+}
+
+/* PLOVOUCÍ POZADÍ – PC */
+
+.parallax-section {
+  width: 100%;
+  height: 280px;
+  background-image: url("pozadi.webp");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* ==================================
+   PLEŤ A TĚLO / MASÁŽE – PC
+================================== */
+
+.services-section {
+  background: #fff8f1;
+  padding: 48px 0 55px;
+  overflow: hidden;
+}
+
+.services-inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 8.5%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 75px;
+}
+
+.services-column {
+  min-width: 0;
+}
+
+.services-column:nth-child(2) {
+  border-left: 1px solid #edc9b4;
+  padding-left: 75px;
+}
+
+.services-column h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--wine);
+  margin-bottom: 18px;
+}
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-link {
+  width: 100%;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 1px solid #edc9b4;
+  background: transparent;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #000000;
+  text-align: left;
+  cursor: pointer;
+  transition: color .25s ease;
+}
+
+.service-link:hover {
+  color: var(--wine);
+}
+
+.service-arrow {
+  flex-shrink: 0;
+  font-family: Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+  color: #c66c42;
+}
+
+
+/* CITÁTOVÝ PRUH – PC */
+
+.quote-section {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: 210px;
+  background: #F6A64D;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background-image: url("flowers.webp");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.quote-inner {
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 5%;
+  text-align: center;
+  transform: translateY(8px);
+}
+
+.quote-inner .quote-small {
+  font-family: "Montserrat", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #751b18;
+  margin-bottom: 10px;
+}
+
+.quote-inner .quote-large {
+  font-family: "Aboreto", "Trebuchet MS", serif;
+  font-size: clamp(25px, 2.5vw, 38px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: #751b18;
+  text-shadow: 1px 0 currentColor;
+}
+
+/* ==================================
+   O MNĚ – PC
+================================== */
+
+.about-section {
+  background: #fff8f1;
+  padding: 0;
+}
+
+.about-inner {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 38% 62%;
+  align-items: stretch;
+}
+
+.about-image {
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+}
+
+.about-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+}
+
+.about-content {
+  padding: 45px 8% 40px 7%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-label {
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #a94b3b;
+  margin-bottom: 10px;
+}
+
+.about-content h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(45px, 4.2vw, 65px);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -1.5px;
+  color: #751b18;
+  margin-bottom: 27px;
+}
+
+.about-text {
+  max-width: 650px;
+}
+
+.about-text p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.75;
+  color: #3b302d;
+  margin-bottom: 15px;
+}
+
+.about-text p:last-child {
+  margin-bottom: 0;
+}
+
+.about-text strong {
+  font-weight: 700;
+}
+
+.about-signature {
+  display: block;
+  width: 330px;
+  max-width: 100%;
+  height: auto;
+  margin-top: 28px;
+}
+
+/* ==================================
+   DÁRKOVÉ POUKAZY – PC
+================================== */
+
+.voucher-section {
+  display: grid;
+  grid-template-columns: 52% 48%;
+  min-height: 350px;
+  background: #FFF1E5;
+  overflow: hidden;
+}
+
+.voucher-content {
+  display: grid;
+  grid-template-columns: 48% 52%;
+  align-items: center;
+  gap: 20px;
+  padding: 50px 7% 50px 12%;
+}
+
+.voucher-label {
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c66c42;
+  border-bottom: 1px solid #e58e36;
+  padding-bottom: 5px;
+  margin-bottom: 22px;
+}
+
+.voucher-heading h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(42px, 3.6vw, 58px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  color: var(--wine);
+}
+
+.voucher-line {
+  width: 75px;
+  height: 2px;
+  background: #e58e36;
+  margin-top: 24px;
+}
+
+.voucher-heading {
+  transform: translateY(-25px);
+}
+
+.voucher-details p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
+
+.voucher-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 12px;
+  padding: 16px 24px;
+  border-radius: 40px;
+  background: linear-gradient(90deg, #E58E36 0%, #B85D3E 100%);
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: filter .25s ease;
+}
+
+.voucher-button:hover {
+  filter: brightness(1.12);
+}
+
+.voucher-image {
+  position: relative;
+  min-height: 350px;
+  overflow: hidden;
+}
+
+.voucher-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to right,
+    #FFF1E5 0%,
+    rgba(255, 241, 229, 0.95) 5%,
+    rgba(255, 241, 229, 0.65) 15%,
+    rgba(255, 241, 229, 0.25) 27%,
+    transparent 40%
+  );
+}
+
+.voucher-image img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ==================================
+   KONTAKT – PC
+================================== */
+
+.contact-section {
+  background: #FFF8F1;
+  padding: 48px 0;
+  overflow: hidden;
+}
+
+.contact-inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 8.5%;
+  display: grid;
+  grid-template-columns: 34% 40% 26%;
+  align-items: center;
+}
+
+.contact-heading {
+  transform: translateX(-38px);
+}
+
+.contact-label {
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c66c42;
+  border-bottom: 1px solid #e58e36;
+  padding-bottom: 5px;
+  margin-bottom: 22px;
+}
+
+.contact-heading h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(42px, 3.6vw, 58px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  color: var(--wine);
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  border-left: 1px solid #edc9b4;
+  padding-left: 35px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--ink);
+  transition: color .25s ease;
+}
+
+.contact-item:hover {
+  color: #c66c42;
+}
+
+.contact-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #e58e36;
+}
+
+.contact-icon svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.contact-icon-facebook svg {
+  width: 24px;
+  height: 24px;
+}
+
+.contact-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding-left: 30px;
+}
+
+.contact-button-primary {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 17px 27px;
+  border-radius: 40px;
+  background: linear-gradient(90deg, #E58E36 0%, #B85D3E 100%);
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #fff;
+  white-space: nowrap;
+  transition: filter .25s ease;
+}
+
+.contact-button-primary:hover {
+  filter: brightness(1.12);
+}
+
+.contact-button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border: 1px solid #edc9b4;
+  border-radius: 40px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+  white-space: nowrap;
+  transition: border-color .25s ease;
+}
+
+.contact-button-secondary:hover {
+  border-color: #c66c42;
+}
+
+.contact-button-secondary span {
+  font-size: 19px;
+  color: #c66c42;
+}
+
+.contact-map-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-map-icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+.contact-photo {
+  padding-left: 0;
+  width: 115%;
+}
+
+.contact-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* FOOTER – PC */
+.site-footer {
+  background: #4D1416;
+  padding: 19px 20px;
+  text-align: center;
+  border-top: 1px solid #FFFFFF;
+}
+
+.site-footer p {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  line-height: 1.5;
+  color: #FFFFFF;
+}
+
+
+    /* TABLET */
+    @media (max-width: 1150px) {
+      .navbar {
+        align-items: center;
+      }
+
+.navbar.scrolled .brand {
+  width: 90px;
+}
+
+      .brand {
+        width: 150px;
+      }
+
+      .nav-links {
+        gap: 13px;
+        padding-top: 0;
+      }
+
+      .nav-links a {
+        font-size: 10px;
+      }
+
+      .nav-cta {
+        margin-top: 0;
+        padding: 15px 20px;
+        font-size: 9px;
+      }
+
+      .hero-content {
+        left: 7%;
+      }
+
+      .hero-content h1 {
+        font-size: clamp(62px, 7vw, 85px);
+      }
+    }
+
+    /* MOBILE NAVIGATION */
+    @media (max-width: 900px) {
+
+      html:has(.nav-links.open),
+body:has(.nav-links.open) {
+  overflow: hidden;
+}
+      .hero {
+        height: auto;
+        min-height: 740px;
+        background-position: 59% center;
+      }
+
+      .navbar {
+        padding: 14px 6%;
+        align-items: center;
+      }
+
+      .brand {
+        width: 125px;
+      }
+
+      .nav-cta {
+        margin-left: auto;
+        padding: 14px 19px;
+      }
+
+      .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        width: 32px;
+        height: 35px;
+        z-index: 12;
+      }
+
+      .menu-toggle span {
+        width: 27px;
+        height: 2px;
+        background: var(--wine);
+        transition: transform .3s ease, opacity .3s ease;
+      }
+
+      .menu-toggle.open span:first-child {
+        transform: translateY(4px) rotate(45deg);
+      }
+
+      .menu-toggle.open span:last-child {
+        transform: translateY(-4px) rotate(-45deg);
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 30px 20px;
+        background: #fff8f1;
+        display: none;
+        flex-direction: column;
+        gap: 25px;
+        box-shadow: 0 12px 25px #4d26151a;
+      }
+
+      .nav-links.open {
+  display: flex;
+}
+
+.navbar:has(.nav-links.open) {
+  background: #fff8f1;
+}
+
+      .nav-links a {
+        font-size: 14px;
+      }
+
+      .hero-content {
+        top: 220px;
+        left: 7%;
+        right: 7%;
+        transform: none;
+        max-width: 460px;
+      }
+
+      .hero-content h1 {
+        font-size: clamp(64px, 10vw, 83px);
+      }
+
+      .hero-subtitle {
+        font-size: 12px;
+        letter-spacing: 3px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+.intro-section {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-text {
+    justify-content: flex-start;
+    padding: 65px 7%;
+  }
+
+  .intro-text-inner {
+    max-width: 650px;
+  }
+
+  .intro-text h2 {
+    font-size: clamp(46px, 7vw, 65px);
+  }
+
+  .intro-image {
+  min-height: 360px;
+}
+
+
+/* PÉČE DLE ČASU – TABLET */
+
+.time-care {
+  padding: 55px 0 60px;
+}
+
+.time-care-inner {
+  grid-template-columns: 1fr;
+  gap: 42px;
+  padding: 0 5%;
+}
+
+.time-care-heading {
+  padding-right: 0;
+}
+
+.time-care-heading h2 {
+  font-size: 38px;
+}
+
+.time-care-options {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.time-care-item {
+  min-height: 270px;
+  padding: 0 10px;
+}
+
+.time-care-number {
+  font-size: 43px;
+}
+
+.time-care-unit {
+  font-size: 17px;
+}
+
+.time-care-description {
+  margin: 18px 0 22px;
+}
+
+.time-care-description h3 {
+  font-size: 13px;
+  line-height: 1.45;
+  margin-bottom: 12px;
+  min-height: 38px;
+}
+
+.time-care-description p {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.65;
+  color: #000000;
+}
+
+.time-care-button {
+  font-size: 8px;
+  padding: 10px 12px;
+  white-space: nowrap;
+}
+
+/* PLOVOUCÍ POZADÍ – TABLET */
+
+.parallax-section {
+  height: 240px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+}
+
+/* PLEŤ A TĚLO / MASÁŽE – TABLET */
+
+.services-section {
+  padding: 45px 0 50px;
+}
+
+.services-inner {
+  padding: 0 5%;
+  column-gap: 35px;
+}
+
+.services-column:nth-child(2) {
+  padding-left: 35px;
+}
+
+.services-column h2 {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.service-link {
+  font-size: 12px;
+  min-height: 44px;
+}
+
+/* CITÁTOVÝ PRUH – TABLET */
+
+.quote-section {
+  height: 190px;
+  background-position: center center;
+  background-attachment: scroll;
+}
+
+.quote-inner {
+  padding: 0 6%;
+}
+
+.quote-inner .quote-small {
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.quote-inner .quote-large {
+  font-size: clamp(25px, 3.5vw, 33px);
+  line-height: 1.35;
+}
+
+/* O MNĚ – TABLET */
+
+.about-section {
+  padding: 0;
+}
+
+.about-inner {
+  grid-template-columns: 40% 60%;
+  padding: 0;
+}
+
+.about-image {
+  height: 540px;
+}
+
+.about-content {
+  padding-left: 35px;
+}
+
+.about-content h2 {
+  font-size: 45px;
+  margin-bottom: 22px;
+}
+
+.about-text p {
+  font-size: 12px;
+  line-height: 1.7;
+  margin-bottom: 13px;
+}
+
+.about-signature {
+  width: 280px;
+  margin-top: 24px;
+}
+
+/* DÁRKOVÉ POUKAZY – TABLET */
+
+.voucher-section {
+  grid-template-columns: 1fr 1fr;
+}
+
+.voucher-content {
+  grid-template-columns: 1fr;
+  gap: 22px;
+  padding: 45px 8%;
+}
+
+.voucher-heading h2 {
+  font-size: 46px;
+}
+
+.voucher-image {
+  min-height: 400px;
+}
+
+.voucher-heading {
+  transform: none;
+}
+
+/* KONTAKT – TABLET */
+
+.contact-section {
+  padding: 45px 0;
+}
+
+.contact-inner {
+  grid-template-columns: 1fr 1.3fr;
+  gap: 30px;
+  padding: 0 6%;
+}
+
+.contact-heading {
+  transform: none;
+}
+
+.contact-heading h2 {
+  font-size: 46px;
+}
+
+.contact-details {
+  padding-left: 25px;
+}
+
+.contact-item {
+  font-size: 14px;
+}
+
+.contact-actions {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  justify-content: center;
+  padding-left: 0;
+}
+
+.contact-photo {
+  grid-column: 1 / -1;
+  padding-left: 0;
+  max-width: 420px;
+  width: 100%;
+  justify-self: center;
+}
+
+.contact-photo img {
+  height: auto;
+}
+
+/* FOOTER – TABLET */
+.site-footer {
+  padding: 17px 20px;
+}
+
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+  min-height: 780px;
+  background-position: 61% center;
+}
+
+.hero::before {
+  display: none;
+}
+
+      .navbar {
+        padding: 12px 5%;
+        gap: 12px;
+      }
+
+.navbar.scrolled {
+  padding: 10px 5%;
+}
+
+.navbar.scrolled .brand {
+  width: 75px;
+}
+
+      .brand {
+        width: 103px;
+      }
+
+      .nav-cta {
+        padding: 13px 15px;
+        font-size: 9px;
+        letter-spacing: 1.2px;
+      }
+
+      .hero-content {
+  top: 420px;
+  left: 6%;
+  right: 6%;
+}
+
+      .hero-content h1 {
+        font-size: clamp(58px, 12vw, 78px);
+        letter-spacing: -2px;
+      }
+
+      .hero-subtitle {
+        margin-top: 21px;
+        font-size: 10px;
+        letter-spacing: 2.4px;
+      }
+
+      .hero-description {
+        margin-top: 17px;
+        max-width: 290px;
+        font-size: 15px;
+        line-height: 1.65;
+      }
+
+      .hero-button {
+        margin-top: 22px;
+        padding: 17px 23px;
+        font-size: 10px;
+        letter-spacing: 1.5px;
+      }
+
+.benefits-strip {
+  display: none;
+}
+
+  .benefits-inner > div {
+    font-size: 8px;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    padding: 0 8px;
+  }
+
+  .benefits-inner > div:nth-child(2) {
+    border-right: none;
+  }
+
+.intro-text {
+    padding: 55px 6%;
+  }
+
+  .intro-text h2 {
+  font-size: clamp(43px, 10vw, 56px);
+  letter-spacing: -1px;
+  text-align: center;
+}
+
+ .intro-line {
+  margin: 22px auto 20px;
+}
+
+  .intro-text p {
+  font-size: 14px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+ .intro-image {
+  min-height: 300px;
+}
+
+.intro-image::before {
+  display: none;
+}
+
+.intro-image .intro-decoration {
+  width: 55%;
+}
+
+
+/* PÉČE DLE ČASU – MOBIL */
+
+.time-care {
+  padding: 48px 0 55px;
+}
+
+.time-care-inner {
+  padding: 0 5%;
+  gap: 38px;
+}
+
+.time-care-heading {
+  text-align: center;
+}
+
+.time-care-heading h2 {
+  font-size: clamp(29px, 7.5vw, 36px);
+  line-height: 1.15;
+  letter-spacing: -0.8px;
+}
+
+.time-care-line {
+  margin: 20px auto 0;
+}
+
+.time-care-label {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  margin-bottom: 18px;
+}
+
+.time-care-line {
+  margin-top: 20px;
+}
+
+.time-care-options {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 0;
+  row-gap: 45px;
+}
+
+.time-care-item {
+  min-height: 275px;
+  padding: 0 12px;
+}
+
+.time-care-item:nth-child(3)::before {
+  display: none;
+}
+
+.time-care-number {
+  font-size: 42px;
+}
+
+.time-care-unit {
+  font-size: 16px;
+}
+
+.time-care-description {
+  margin: 18px 0 22px;
+}
+
+.time-care-description h3 {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.45;
+  margin-bottom: 12px;
+  min-height: 38px;
+}
+
+.time-care-description p {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #000000;
+}
+
+.time-care-button {
+  font-size: 8px;
+  padding: 10px 12px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+/* PLOVOUCÍ POZADÍ – MOBIL */
+
+.parallax-section {
+  position: relative;
+  height: 190px;
+  overflow: hidden;
+  background-image: none;
+}
+
+.parallax-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -80px;
+  height: calc(100% + 160px);
+
+  background-image: url("pozadi.webp");
+  background-size: cover;
+  background-position: 65% center;
+  background-repeat: no-repeat;
+
+  transform: translate3d(0, var(--mirka-shift, 0px), 0);
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* PLEŤ A TĚLO / MASÁŽE – MOBIL */
+
+.services-section {
+  padding: 45px 0 50px;
+}
+
+.services-inner {
+  grid-template-columns: 1fr;
+  padding: 0 6%;
+  row-gap: 42px;
+}
+
+.services-column:nth-child(2) {
+  border-left: 0;
+  padding-left: 0;
+}
+
+.services-column h2 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  margin-bottom: 16px;
+}
+
+.service-link {
+  min-height: 46px;
+  padding: 11px 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.service-arrow {
+  font-size: 22px;
+}
+
+/* CITÁTOVÝ PRUH – MOBIL */
+
+.quote-section {
+  height: auto;
+  min-height: 150px;
+  padding: 15px 0;
+
+  background-position: center center;
+  background-attachment: scroll;
+}
+
+   .quote-section::before {
+  background-size: 130% 130%;
+  background-position: center calc(70% + var(--flower-shift, 0px));
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+.quote-inner {
+  padding: 0 6%;
+}
+
+.quote-inner .quote-small {
+  font-size: 12px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.quote-inner .quote-large {
+  font-size: clamp(17px, 4.5vw, 23px);
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.quote-inner br {
+  display: none;
+}
+
+/* O MNĚ – MOBIL */
+
+.about-section {
+  padding: 0 0 55px;
+}
+
+.about-inner {
+  grid-template-columns: 1fr;
+  padding: 0;
+  gap: 35px;
+}
+
+.about-image {
+  height: 420px;
+}
+
+.about-image img {
+  object-position: center 35%;
+}
+
+.about-content {
+  padding: 0 6%;
+}
+
+.about-label {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.about-content h2 {
+  font-size: clamp(43px, 10vw, 56px);
+  line-height: 1;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.about-text p {
+  font-size: 13px;
+  line-height: 1.8;
+  margin-bottom: 17px;
+}
+
+.about-signature {
+  width: 260px;
+  margin: 22px auto 0;
+}
+
+/* DÁRKOVÉ POUKAZY – MOBIL */
+
+.voucher-section {
+  grid-template-columns: 1fr;
+}
+
+.voucher-content {
+  padding: 48px 6% 15px;
+  gap: 25px;
+  text-align: center;
+}
+
+.voucher-label {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #e58e36;
+  padding-bottom: 5px;
+}
+
+.voucher-heading h2 {
+  font-size: clamp(43px, 10vw, 56px);
+}
+
+      .voucher-line {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.voucher-details p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.voucher-image {
+  min-height: 300px;
+}
+
+.voucher-button {
+  margin-top: 10px;
+}
+
+.voucher-image::before {
+  display: none;
+}
+
+/* KONTAKT – MOBIL */
+
+.contact-section {
+  padding: 50px 0;
+}
+
+.contact-inner {
+  grid-template-columns: 1fr;
+  gap: 32px;
+  padding: 0 6%;
+}
+
+.contact-label {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  margin-bottom: 18px;
+}
+.contact-heading {
+  text-align: center;
+}
+
+.contact-heading h2 {
+  font-size: clamp(43px, 10vw, 56px);
+  text-align: center;
+}
+
+.contact-details {
+  border-left: 0;
+  border-top: 1px solid #edc9b4;
+  padding: 28px 0 0;
+  gap: 20px;
+}
+
+.contact-item {
+  font-size: 14px;
+  gap: 15px;
+  overflow-wrap: anywhere;
+}
+
+.contact-actions {
+  grid-column: auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.contact-button-primary,
+.contact-button-secondary {
+  min-width: 185px;
+}
+
+.contact-photo {
+  grid-column: auto;
+  max-width: 100%;
+  justify-self: stretch;
+}
+
+.contact-photo img {
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+/* FOOTER – MOBIL */
+.site-footer {
+  padding: 16px 15px;
+}
+
+.site-footer p {
+  font-size: 10px;
+  line-height: 1.6;
+}
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar" aria-label="Hlavní navigace">
+      <a href="#domu" class="brand" aria-label="Ganesha – úvod">
+        <img src="logo.webp" alt="Ganesha – přírodní kosmetika">
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#domu" class="active">Domů</a>
+        <a href="#uvod">Úvod</a>
+        <a href="#pece-dle-casu">Péče dle času</a>
+        <a href="#plet-a-telo">Kosmetika a masáže</a>
+        <a href="#o-mne">O mně</a>
+        <a href="#poukazy">Poukazy</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+
+      <a href="#kontakt" class="nav-cta">OBJEDNAT SE</a>
+
+      <button class="menu-toggle" id="menuToggle"
+              aria-label="Otevřít menu"
+              aria-expanded="false"
+              aria-controls="navLinks">
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <header class="hero" id="domu">
+  <div class="hero-content">
+    <h1>Mirka<br>Fiebingerová</h1>
+    <div class="hero-subtitle">Kosmetické studio Ganesha</div>
+      <p class="hero-description">
+        Přirozená péče pro vaši krásu,<br>
+        harmonii a dobrou náladu.
+      </p>
+      <a href="#pece-dle-casu" class="hero-button">
+        Objevte mé služby <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </header>
+
+<section class="benefits-strip" aria-label="Výhody salonu">
+  <div class="benefits-inner">
+    <div>Individuální přístup</div>
+    <div>Kvalitní přírodní kosmetika</div>
+    <div>Relaxace a harmonie</div>
+    <div>Zkušenosti a důvěra</div>
+  </div>
+</section>
+
+<!-- ÚVODNÍ SEKCE -->
+<section class="intro-section" id="uvod">
+  <div class="intro-text">
+    <div class="intro-text-inner">
+      <h2>Místo, kde je čas<br>jen pro vás.</h2>
+      <div class="intro-line"></div>
+
+      <p>
+        Nabízím kosmetickou péči, masáže a další ošetření,
+        které propojují přirozenost, osobní přístup a kvalitní
+        přírodní kosmetiku. Dopřejte si klid, uvolnění a péči,
+        která respektuje vaše potřeby.
+      </p>
+    </div>
+  </div>
+
+  <div class="intro-image">
+  <img src="vyrez1.webp" alt="Kosmetické ošetření ve studiu Ganesha">
+
+  <img src="napis5.webp"
+       alt="Přirozeně a s respektem k vaší pleti"
+       class="intro-decoration">
+</div>
+</section>
+
+
+<!-- PÉČE DLE ČASU -->
+<section class="time-care" id="pece-dle-casu">
+  <div class="time-care-inner">
+
+    <div class="time-care-heading">
+      <span class="time-care-label">Péče dle času</span>
+      <h2>Vy si určíte čas.<br>O vše ostatní se postarám.</h2>
+      <div class="time-care-line"></div>
+    </div>
+
+    <div class="time-care-options">
+
+      <article class="time-care-item">
+        <div class="time-care-number">60</div>
+        <div class="time-care-unit">minut</div>
+        <div class="time-care-description">
+  <h3>Základní kosmetická péče</h3>
+  <p>Základní ošetření pro osvěžení pleti a pravidelnou péči.</p>
+</div>
+        <button type="button" class="time-care-button" data-time="60">Více informací</button>
+      </article>
+
+      <article class="time-care-item">
+        <div class="time-care-number">90</div>
+        <div class="time-care-unit">minut</div>
+        <div class="time-care-description">
+  <h3>Komplexní kosmetické ošetření</h3>
+  <p>Důkladnější ošetření pleti spojené s příjemnou relaxací.</p>
+</div>
+        <button type="button" class="time-care-button" data-time="90">Více informací</button>
+      </article>
+
+      <article class="time-care-item">
+        <div class="time-care-number">120</div>
+        <div class="time-care-unit">minut</div>
+        <div class="time-care-description">
+  <h3>Prémiový balíček</h3>
+  <p>Intenzivnější péče, kombinace technik a hlubší uvolnění.</p>
+</div>
+        <button type="button" class="time-care-button" data-time="120">Více informací</button>
+      </article>
+
+      <article class="time-care-item">
+        <div class="time-care-number">150</div>
+        <div class="time-care-unit">minut</div>
+        <div class="time-care-description">
+  <h3>Luxusní rituál od hlavy až k patě</h3>
+  <p>Výjimečný čas věnovaný nejen vaší pleti, ale celému tělu.</p>
+</div>
+        <button type="button" class="time-care-button" data-time="150">Více informací</button>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- PLOVOUCÍ POZADÍ -->
+<section class="parallax-section" aria-label="Atmosféra studia Ganesha"></section>
+
+<!-- PLEŤ A TĚLO / MASÁŽE -->
+<section class="services-section" id="plet-a-telo">
+  <div class="services-inner">
+
+    <!-- LEVÝ SLOUPEC -->
+    <div class="services-column">
+      <h2>Péče o pleť a tělo</h2>
+
+      <div class="services-list">
+        <button type="button" class="service-link">
+          <span>Enzymatická kúra se třemi séry</span>
+          <span class="service-arrow">›</span>
+        </button>
+
+        <button type="button" class="service-link">
+          <span>Další možnosti péče o pleť</span>
+          <span class="service-arrow">›</span>
+        </button>
+
+        <button type="button" class="service-link">
+          <span>Úprava řas a obočí</span>
+          <span class="service-arrow">›</span>
+        </button>
+
+        <button type="button" class="service-link">
+          <span>Individuální výuka líčení</span>
+          <span class="service-arrow">›</span>
+        </button>
+
+        <button type="button" class="service-link">
+          <span>Tělový regenerační zábal</span>
+          <span class="service-arrow">›</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- PRAVÝ SLOUPEC -->
+    <div class="services-column" id="masaze">
+      <h2>Masáže a relaxace</h2>
+
+      <div class="services-list">
+        <button type="button" class="service-link">
+          <span>Masáž s využitím hladiny alfa</span>
+          <span class="service-arrow">›</span>
+        </button>
+
+        <button type="button" class="service-link">
+          <span>Terapeutické ošetření pomocí energetické aromaterapie</span>
+          <span class="service-arrow">›</span>
+        </button>
+
+        <button type="button" class="service-link">
+          <span>Liftingová masáž s lávovými kameny</span>
+          <span class="service-arrow">›</span>
+        </button>
+
+        <button type="button" class="service-link">
+          <span>Masáž s aktivací reflexních zón</span>
+          <span class="service-arrow">›</span>
+        </button>
+
+        <button type="button" class="service-link">
+          <span>Antistresová masáž hlavy, šíje a zad</span>
+          <span class="service-arrow">›</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MERUŇKOVÝ PRUH S CITÁTEM -->
+<section class="quote-section">
+  <div class="quote-inner">
+    <p class="quote-small">
+      Cílem není stihnout co nejvíce úkonů.
+    </p>
+
+    <p class="quote-large">
+      Cílem je využít čas, který jste si pro sebe vyhradili,<br>
+      co nejlépe.
+    </p>
+  </div>
+</section>
+
+<!-- O MNĚ -->
+<section class="about-section" id="o-mne">
+  <div class="about-inner">
+
+    <div class="about-image">
+      <img src="mirka.webp" alt="Mirka Fiebingerová – kosmetické studio Ganesha">
+    </div>
+
+    <div class="about-content">
+      <span class="about-label">O mně</span>
+
+      <h2>Mirka<br>Fiebingerová</h2>
+
+      <div class="about-text">
+        <p>
+          Kosmetické péči se věnuji dlouhodobě a svou práci stavím na
+          <strong>přirozenosti, individuálním přístupu a osobní zkušenosti.</strong>Za dobu své praxe jsem si vytvořila vlastní způsob práce,
+          ve kterém propojuji <strong>kosmetickou péči, masáž, dotek,
+          vůně a kvalitní přírodní kosmetiku.</strong>
+        </p>
+
+        <p>
+          Přírodní péče pro mě znamená přirozenou a samozřejmou
+          profesní cestu, která mi dává smysl.
+        </p>
+
+        <p>
+          <strong>Každého člověka vnímám jako jedinečnou osobnost.</strong>
+          Stejně tak vnímám i jeho pleť – její aktuální stav, potřeby
+          i to, co jí v danou chvíli prospívá. Nechci, aby si klientka
+          musela sama určovat, jaké všechny procedury potřebuje.
+          Přichází za mnou s důvěrou a já
+          <strong>podle situace volím jednotlivé kroky péče.</strong>
+        </p>
+
+        <img src="podpis.png"
+             alt="Pozoruji, naslouchám, pečuji"
+             class="about-signature">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DÁRKOVÉ POUKAZY -->
+<section class="voucher-section" id="poukazy">
+  <div class="voucher-content">
+
+    <div class="voucher-heading">
+      <span class="voucher-label">Dárkové poukazy</span>
+      <h2>Darujte čas<br>pro sebe.</h2>
+      <div class="voucher-line"></div>
+    </div>
+
+    <div class="voucher-details">
+      <p>
+        Stačí vybrat čas a svěřit se do péče zkušené kosmetičky.
+      </p>
+
+      <p>
+        Nejsem zastáncem jednoho univerzálního postupu pro všechny.
+        Každá návštěva může být jedinečná.
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="voucher-image">
+    <img src="voucher.webp" alt="Dárkový poukaz kosmetického studia Ganesha">
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="contact-section" id="kontakt">
+  <div class="contact-inner">
+
+    <div class="contact-heading">
+      <span class="contact-label">Kontakt</span>
+      <h2>Těším se<br>na vaši návštěvu.</h2>
+    </div>
+
+    <div class="contact-details">
+
+      <a href="https://maps.app.goo.gl/ofsnkSeqhFNykaHn7"
+   target="_blank" rel="noopener noreferrer" class="contact-item">
+        <span class="contact-icon">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"
+       aria-hidden="true">
+    <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/>
+    <circle cx="12" cy="10" r="2.5"/>
+  </svg>
+</span>
+        <span>Pražská 89, 541 01 Trutnov</span>
+      </a>
+
+      <a href="tel:+420737760799" class="contact-item">
+        <span class="contact-icon">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"
+       aria-hidden="true">
+    <path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 3.1 5.2
+             2 2 0 0 1 5.1 3h3a2 2 0 0 1 2 1.7l.5 3
+             a2 2 0 0 1-.6 1.7L8.1 11a16 16 0 0 0 4.9 4.9
+             l1.6-1.9a2 2 0 0 1 1.7-.6l3 .5a2 2 0 0 1 1.7 2Z"/>
+  </svg>
+</span>
+        <span>+420 737 760 799</span>
+      </a>
+
+      <a href="mailto:ganeshastudiotrutnov@seznam.cz" class="contact-item">
+        <span class="contact-icon">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"
+       aria-hidden="true">
+    <rect x="3" y="5" width="18" height="14" rx="1"/>
+    <path d="m3 7 9 6 9-6"/>
+  </svg>
+</span>
+        <span>ganeshastudiotrutnov@seznam.cz</span>
+      </a>
+
+      <a href="https://www.facebook.com/ganeshastudiotrutnov/"
+   target="_blank" rel="noopener noreferrer" class="contact-item">
+  <span class="contact-icon contact-icon-facebook">
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="2" y="2" width="20" height="20" rx="3" fill="#E58E36"/>
+    <path d="M14.5 21v-8h2.7l.4-3.1h-3.1V8
+             c0-.9.3-1.5 1.6-1.5h1.7V3.7
+             c-.3 0-1.3-.1-2.5-.1-2.6 0-4.4 1.6-4.4 4.5v1.8H8V13h2.9v8h3.6Z"
+          fill="#FFFFFF"/>
+  </svg>
+</span>
+        <span>Ganesha kosmetické studio</span>
+      </a>
+
+    </div>
+
+<div class="contact-photo">
+  <img src="outside.jpg" alt="Exteriér kosmetického studia Ganesha" loading="lazy">
+</div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>© <span id="footer-year">2026</span> Ganesha kosmetické studio. Všechna práva vyhrazena.</p>
+</footer>
+
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.classList.toggle("open", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Zavřít menu" : "Otevřít menu"
+      );
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Otevřít menu");
+      });
+    });
+
+const navbar = document.querySelector(".navbar");
+
+function updateNavbar() {
+  navbar.classList.toggle("scrolled", window.scrollY > 80);
+}
+
+window.addEventListener("scroll", updateNavbar, { passive: true });
+updateNavbar();
+
+document.getElementById("footer-year").textContent = new Date().getFullYear();
+
+    // PLOVOUCÍ KVĚTINY V ORANŽOVÉM PRUHU – MOBIL
+const flowerQuote = document.querySelector(".quote-section");
+
+if (flowerQuote) {
+  let flowerTicking = false;
+
+  function updateFlowerParallax() {
+    flowerTicking = false;
+
+    if (window.innerWidth > 600) {
+      flowerQuote.style.removeProperty("--flower-shift");
+      return;
+    }
+
+    const rect = flowerQuote.getBoundingClientRect();
+    const viewportCenter = window.innerHeight / 2;
+    const sectionCenter = rect.top + rect.height / 2;
+
+    const shift = Math.max(
+      -18,
+      Math.min(18, (viewportCenter - sectionCenter) * 0.08)
+    );
+
+    flowerQuote.style.setProperty("--flower-shift", `${shift}px`);
+  }
+
+  function requestFlowerParallax() {
+    if (!flowerTicking) {
+      flowerTicking = true;
+      requestAnimationFrame(updateFlowerParallax);
+    }
+  }
+
+  window.addEventListener("scroll", requestFlowerParallax, { passive: true });
+  window.addEventListener("resize", requestFlowerParallax);
+
+  requestFlowerParallax();
+}
+
+      // PLOVOUCÍ FOTOGRAFIE MIRKY – MOBIL
+const mirkaParallax = document.querySelector(".parallax-section");
+    const mirkaViewportHeight = window.screen.height;
+
+if (mirkaParallax) {
+  let mirkaTicking = false;
+
+  function updateMirkaParallax() {
+    mirkaTicking = false;
+
+    if (window.innerWidth > 600) {
+      mirkaParallax.style.removeProperty("--mirka-shift");
+      return;
+    }
+
+    const rect = mirkaParallax.getBoundingClientRect();
+    const viewportCenter = mirkaViewportHeight / 2;
+    const sectionCenter = rect.top + rect.height / 2;
+
+    // Posun fotografie podle polohy pruhu na obrazovce
+    const shift = Math.max(
+      -70,
+      Math.min(70, (viewportCenter - sectionCenter) * 0.18)
+    );
+
+    mirkaParallax.style.setProperty("--mirka-shift", `${shift}px`);
+  }
+
+  function requestMirkaParallax() {
+    if (!mirkaTicking) {
+      mirkaTicking = true;
+      requestAnimationFrame(updateMirkaParallax);
+    }
+  }
+
+  window.addEventListener("scroll", requestMirkaParallax, { passive: true });
+  window.addEventListener("resize", requestMirkaParallax);
+
+  requestMirkaParallax();
+}
+  </script>
+
+</body>
+</html>
