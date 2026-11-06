@@ -581,9 +581,16 @@ max-width: none;
   min-width: 0;
 }
 
-.services-column:nth-child(2) {
+.services-column:first-child {
+  order: 2;
   border-left: 1px solid #edc9b4;
   padding-left: 75px;
+}
+
+.services-column:nth-child(2) {
+  order: 1;
+  border-left: none;
+  padding-left: 0;
 }
 
 .services-column h2 {
@@ -1732,7 +1739,7 @@ body:has(.nav-links.open) {
   row-gap: 42px;
 }
 
-.services-column:nth-child(2) {
+.services-column:first-child {
   border-left: 0;
   padding-left: 0;
 }
