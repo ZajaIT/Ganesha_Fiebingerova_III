@@ -1739,8 +1739,10 @@ body:has(.nav-links.open) {
   row-gap: 42px;
 }
 
-.services-column {
-  border-left: 0;
+.services-column,
+.services-column:first-child,
+.services-column:nth-child(2) {
+  border-left: none;
   padding-left: 0;
 }
 
