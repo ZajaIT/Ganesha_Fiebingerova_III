@@ -211,14 +211,31 @@ max-width: none;
       max-width: 550px;
     }
 
-    .hero-content h1 {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(68px, 6.3vw, 106px);
-      font-weight: 500;
-      letter-spacing: -3.5px;
-      line-height: .79;
-      color: var(--wine);
-    }
+    
+.hero-content h1 {
+  margin: 0;
+  width: 100%;
+  max-width: 550px;
+}
+
+.hero-title-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.hero-title-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 
     .hero-subtitle {
       margin-top: 25px;
@@ -1956,7 +1973,13 @@ body:has(.nav-links.open) {
 
     <header class="hero" id="domu">
   <div class="hero-content">
-    <h1>Mirka<br>Fiebingerová</h1>
+    <h1 class="hero-title">
+  <span class="hero-title-text">Mirka Fiebingerová</span>
+  <img src="mirka-fiebingerova.webp"
+       alt=""
+       aria-hidden="true"
+       class="hero-title-image">
+</h1>
     <div class="hero-subtitle">Kosmetické studio Ganesha</div>
       <p class="hero-description">
         Přirozená péče pro vaši krásu,<br>
