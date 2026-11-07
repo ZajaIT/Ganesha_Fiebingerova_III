@@ -1473,6 +1473,92 @@ max-width: none;
   object-fit: contain;
 }
 
+    
+/* ==================================
+   KONTAKTNÍ FORMULÁŘ – PC
+================================== */
+
+.contact-form-section {
+  background: #FFF8F1;
+  padding: 25px 20px 65px;
+}
+
+.contact-form-inner {
+  width: 100%;
+  max-width: 580px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-form-inner h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 38px;
+  font-weight: 500;
+  color: #751b18;
+  margin-bottom: 12px;
+}
+
+.contact-form-inner > p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: #3b302d;
+  margin-bottom: 30px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  border-bottom: 1px solid #edc9b4;
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #3b302d;
+  resize: vertical;
+  transition: border-color 0.25s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #8f8079;
+  opacity: 1;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-bottom-color: #e58e36;
+}
+
+.contact-form button {
+  align-self: center;
+  margin-top: 12px;
+  padding: 17px 30px;
+  border: none;
+  border-radius: 40px;
+  background: linear-gradient(90deg, #e58e36, #b85d3e);
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 1;
+  cursor: default;
+}
+
+
 /* FOOTER – PC */
 .site-footer {
   background: #4D1416;
@@ -3150,10 +3236,38 @@ uvolnění a péči, která respektuje vaše potřeby
   <img src="outside.jpg" alt="Exteriér kosmetického studia Ganesha" loading="lazy">
 </div>
 
+  
+  </div>
+</section>
+
+<!-- KONTAKTNÍ FORMULÁŘ -->
+<section class="contact-form-section">
+  <div class="contact-form-inner">
+
+    <h2>Napište mi</h2>
+    <p>Máte dotaz nebo se chcete objednat? Ráda vám odpovím.</p>
+
+    <form class="contact-form">
+      <input type="text" name="name"
+             placeholder="Vaše jméno" autocomplete="name">
+
+      <input type="email" name="email"
+             placeholder="Váš e-mail" autocomplete="email">
+
+      <input type="tel" name="phone"
+             placeholder="Telefon" autocomplete="tel">
+
+      <textarea name="message" rows="4"
+                placeholder="Vaše zpráva"></textarea>
+
+      <button type="button" disabled>Odeslat zprávu</button>
+    </form>
+
   </div>
 </section>
 
 <!-- FOOTER -->
+
 <footer class="site-footer">
   <p>© <span id="footer-year">2026</span> Ganesha kosmetické studio. Všechna práva vyhrazena.</p>
 </footer>
