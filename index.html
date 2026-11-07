@@ -1375,6 +1375,10 @@ max-width: none;
   color: #c66c42;
 }
 
+.contact-item:not(a):hover {
+  color: var(--ink);
+}
+
 .contact-icon {
   width: 24px;
   height: 24px;
@@ -3540,11 +3544,16 @@ const revealElements = document.querySelectorAll(`
   .about-signature,
   .voucher-content,
   .voucher-image,
+  
   .contact-heading,
   .contact-details,
   .contact-actions,
-  .contact-photo
+  .contact-photo,
+  .footer-brand,
+  .footer-form-wrap,
+  .footer-bottom
 `);
+
 
 if ("IntersectionObserver" in window &&
     !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
