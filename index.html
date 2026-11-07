@@ -854,6 +854,31 @@ max-width: none;
 }
 
 
+/* ==================================
+   NAJÍŽDĚCÍ ANIMACE WEBU
+================================== */
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 
 /* PLOVOUCÍ POZADÍ – PC */
 
@@ -3241,6 +3266,57 @@ serviceButtons.forEach((button, index) => {
   });
 });
 
+
+/* ==================================
+   NAJÍŽDĚCÍ ANIMACE CELÉHO WEBU
+================================== */
+
+const revealElements = document.querySelectorAll(`
+  .intro-text-inner,
+  .intro-image,
+  .time-care-heading,
+  .time-care-item,
+  .services-column,
+  .quote-small,
+  .quote-large,
+  .about-image,
+  .about-label,
+  .about-content h2,
+  .about-text,
+  .about-signature,
+  .voucher-content,
+  .voucher-image,
+  .contact-heading,
+  .contact-details,
+  .contact-actions,
+  .contact-photo
+`);
+
+if ("IntersectionObserver" in window &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.08,
+    rootMargin: "0px 0px -25px 0px"
+  });
+
+  revealElements.forEach(element => {
+    element.classList.add("reveal-on-scroll");
+    revealObserver.observe(element);
+  });
+
+} else {
+  revealElements.forEach(element => {
+    element.classList.add("is-visible");
+  });
+}
 
 
   </script>
