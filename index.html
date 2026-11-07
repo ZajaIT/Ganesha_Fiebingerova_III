@@ -359,23 +359,6 @@ max-width: none;
   overflow: hidden;
 }
 
-.intro-image::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-
-  background: linear-gradient(
-    to right,
-    #fff8f1 0%,
-    rgba(255, 248, 241, 0.95) 5%,
-    rgba(255, 248, 241, 0.65) 15%,
-    rgba(255, 248, 241, 0.25) 27%,
-    transparent 40%
-  );
-}
-
 .intro-image img {
   display: block;
   width: 100%;
@@ -1588,10 +1571,6 @@ body:has(.nav-links.open) {
 
  .intro-image {
   min-height: 300px;
-}
-
-.intro-image::before {
-  display: none;
 }
 
 .intro-image .intro-decoration {
