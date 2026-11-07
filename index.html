@@ -2190,7 +2190,7 @@ uvolnění a péči, která respektuje vaše potřeby
       Korekce obočí+barvení obočí a řas, nebo aktivní hydratace, nebo epilace lýtek, nebo epilace obličeje
     </p>
 
-    <p class="time-modal-price">Od 400,- Kč</p>
+    <p class="time-modal-price">od 500 Kč</p>
 
     <a href="#kontakt" class="time-modal-order">
       Objednat se
@@ -2198,6 +2198,111 @@ uvolnění a péči, která respektuje vaše potřeby
 
   </div>
 </dialog>
+
+  
+<!-- MODAL – 60 MINUT -->
+<dialog id="time-modal-60" class="time-modal">
+  <div class="time-modal-content">
+
+    <button type="button" class="time-modal-close"
+            aria-label="Zavřít okno">×</button>
+
+    <div class="time-modal-number">60</div>
+    <div class="time-modal-unit">minut</div>
+
+    <h2>Potřebuji se zastavit</h2>
+
+    <div class="time-modal-line"></div>
+
+    <p class="time-modal-text">
+      Péče zaměřená především na pravidelné ošetření pleti, její očištění, osvěžení a základní regeneraci. Bylinné masky, hydroláty. Rozsah ošetření se přizpůsobuje aktuálnímu stavu pleti a tomu, co právě potřebuje.
+    </p>
+
+    <p class="time-modal-price">od 1 000 Kč</p>
+
+    <a href="#kontakt" class="time-modal-order">Objednat se</a>
+
+  </div>
+</dialog>
+
+
+<!-- MODAL – 90 MINUT -->
+<dialog id="time-modal-90" class="time-modal">
+  <div class="time-modal-content">
+
+    <button type="button" class="time-modal-close"
+            aria-label="Zavřít okno">×</button>
+
+    <div class="time-modal-number">90</div>
+    <div class="time-modal-unit">minut</div>
+
+    <h2>Chci skutečnou péči</h2>
+
+    <div class="time-modal-line"></div>
+
+    <p class="time-modal-text">
+      Více prostoru pro důkladnější ošetření pleti, epilace obličeje, její hloubkové čištění, intenzivnější výživu a hydrataci. Součástí je také delší masáž obličeje, krku a dekoltu, korekce či barvení obočí a řas. Aplikace bioaktivních masek. Péče nabízí dostatek času na příjemnou relaxaci.
+    </p>
+
+    <p class="time-modal-price">od 1 300 Kč</p>
+
+    <a href="#kontakt" class="time-modal-order">Objednat se</a>
+
+  </div>
+</dialog>
+
+
+<!-- MODAL – 120 MINUT -->
+<dialog id="time-modal-120" class="time-modal">
+  <div class="time-modal-content">
+
+    <button type="button" class="time-modal-close"
+            aria-label="Zavřít okno">×</button>
+
+    <div class="time-modal-number">120</div>
+    <div class="time-modal-unit">minut</div>
+
+    <h2>Dnes se nechám rozmazlovat</h2>
+
+    <div class="time-modal-line"></div>
+
+    <p class="time-modal-text">
+      Rozsáhlejší kosmetická péče s prostorem pro výběr individuálních postupů, intenzivnější regeneraci, UZ čištění, aplikace kolagenu či kyseliny hyaluronové. Bioaktivní masky. Podle aktuálního stavu pleti může zahrnovat epilaci obličeje, nebo epilaci těla, a další kosmetické úkony. Rituál pro dokonalý odpočinek.
+    </p>
+
+    <p class="time-modal-price">od 1 700 Kč</p>
+
+    <a href="#kontakt" class="time-modal-order">Objednat se</a>
+
+  </div>
+</dialog>
+
+
+<!-- MODAL – 150 MINUT -->
+<dialog id="time-modal-150" class="time-modal">
+  <div class="time-modal-content">
+
+    <button type="button" class="time-modal-close"
+            aria-label="Zavřít okno">×</button>
+
+    <div class="time-modal-number">150</div>
+    <div class="time-modal-unit">minut</div>
+
+    <h2>Přeji si hýčkat jako královna</h2>
+
+    <div class="time-modal-line"></div>
+
+    <p class="time-modal-text">
+      Nejdelší varianta pro ty, kteří si chtějí dopřát luxusní péči a odpočinek. Čas věnovaný nejen obličeji, krku, dekoltu, ale také tělu. Epilace vybraných částí těla. Nebo tělový zábal proti celulitidě. Individuální záměr. Výběr vonné kompozice na míru. Vedle komplexního kosmetického ošetření nabízí prostor pro doplňkovou péči o ruce nebo chodidla.
+    </p>
+
+    <p class="time-modal-price">od 2 500 Kč</p>
+
+    <a href="#kontakt" class="time-modal-order">Objednat se</a>
+
+  </div>
+</dialog>
+
 
 <!-- PÉČE DLE ČASU -->
 <section class="time-care" id="pece-dle-casu">
@@ -2624,38 +2729,46 @@ if (mirkaParallax) {
 }
 
     
-/* MODAL – PÉČE DLE ČASU 30 MINUT */
 
-const timeModal30 = document.getElementById("time-modal-30");
-const timeButton30 = document.querySelector('.time-care-button[data-time="30"]');
+/* ==================================
+   MODALY – PÉČE DLE ČASU
+================================== */
 
-if (timeModal30 && timeButton30) {
+const timeModalButtons = document.querySelectorAll(".time-care-button");
+const timeModalValues = [30, 60, 90, 120, 150];
 
-  const timeClose30 = timeModal30.querySelector(".time-modal-close");
+timeModalButtons.forEach((button, index) => {
+  const minutes = button.dataset.time || timeModalValues[index];
+  const modal = document.getElementById(`time-modal-${minutes}`);
+
+  if (!modal) return;
+
+  const closeButton = modal.querySelector(".time-modal-close");
+  const orderButton = modal.querySelector(".time-modal-order");
 
   // Otevření modalu
-  timeButton30.addEventListener("click", () => {
-    timeModal30.showModal();
+  button.addEventListener("click", () => {
+    modal.showModal();
   });
 
   // Zavření křížkem
-  timeClose30.addEventListener("click", () => {
-    timeModal30.close();
+  closeButton.addEventListener("click", () => {
+    modal.close();
   });
 
-  // Zavření kliknutím mimo modal
-  timeModal30.addEventListener("click", (event) => {
-    if (event.target === timeModal30) {
-      timeModal30.close();
+  // Zavření kliknutím mimo okno
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.close();
     }
   });
 
   // Zavření při kliknutí na Objednat se
-  timeModal30.querySelector(".time-modal-order")
-    .addEventListener("click", () => {
-      timeModal30.close();
-    });
-}
+  orderButton.addEventListener("click", () => {
+    modal.close();
+  });
+});
+
 
   </script>
 
