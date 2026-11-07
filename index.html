@@ -2909,9 +2909,17 @@ timeModalButtons.forEach((button, index) => {
   const orderButton = modal.querySelector(".time-modal-order");
 
   // Otevření modalu
-  button.addEventListener("click", () => {
-    modal.showModal();
-  });
+button.addEventListener("click", () => {
+  modal.showModal();
+  document.documentElement.style.overflow = "hidden";
+  document.body.style.overflow = "hidden";
+});
+
+// Obnovení scrollování po zavření modalu
+modal.addEventListener("close", () => {
+  document.documentElement.style.overflow = "";
+  document.body.style.overflow = "";
+});
 
   // Zavření křížkem
   closeButton.addEventListener("click", () => {
