@@ -2579,15 +2579,40 @@ body:has(.nav-links.open) {
   object-fit: contain;
 }
 
+
 /* FOOTER – MOBIL */
 .site-footer {
-  padding: 16px 15px;
+  padding: 45px 25px 20px;
 }
 
-.site-footer p {
+.footer-inner {
+  grid-template-columns: 1fr;
+  gap: 0;
+  max-width: 420px;
+}
+
+.footer-brand {
+  display: none;
+}
+
+.footer-form-wrap {
+  width: 100%;
+  max-width: none;
+}
+
+.footer-form-wrap h2 {
+  text-align: center;
+}
+
+.footer-bottom {
+  margin-top: 35px;
+}
+
+.site-footer .footer-bottom p {
   font-size: 10px;
   line-height: 1.6;
 }
+
     }
   </style>
 </head>
