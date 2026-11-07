@@ -746,6 +746,114 @@ max-width: none;
   }
 }
 
+    
+/* ==================================
+   MODALY – KOSMETIKA A MASÁŽE
+================================== */
+
+.service-modal {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: calc(100% - 32px);
+  max-width: 560px;
+  max-height: calc(100dvh - 40px);
+  padding: 0;
+  border: 1px solid #edc9b4;
+  border-radius: 8px;
+  background: #fff8f1;
+  color: #3b302d;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(59, 48, 45, 0.2);
+}
+
+.service-modal::backdrop {
+  background: rgba(30, 15, 15, 0.65);
+}
+
+.service-modal-content {
+  position: relative;
+  padding: 45px 45px 35px;
+  text-align: center;
+}
+
+.service-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  border: 0;
+  background: transparent;
+  color: #751b18;
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.service-modal h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 29px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: #751b18;
+}
+
+.service-modal-line {
+  width: 70px;
+  height: 2px;
+  margin: 22px auto;
+  background: #e58e36;
+}
+
+.service-modal-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.8;
+  color: #000000;
+  text-align: left;
+}
+
+.service-modal-text p + p {
+  margin-top: 15px;
+}
+
+.service-modal-order {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
+  padding: 15px 28px;
+  border-radius: 40px;
+  background: linear-gradient(90deg, #e58e36, #b85d3e);
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: filter 0.25s ease;
+}
+
+.service-modal-order:hover {
+  filter: brightness(1.12);
+}
+
+@media (max-width: 600px) {
+  .service-modal-content {
+    padding: 45px 25px 35px;
+  }
+
+  .service-modal h2 {
+    font-size: 25px;
+  }
+
+  .service-modal-text {
+    font-size: 13px;
+  }
+}
+
+
 
 /* PLOVOUCÍ POZADÍ – PC */
 
@@ -2611,6 +2719,153 @@ uvolnění a péči, která respektuje vaše potřeby
   </div>
 </section>
 
+  
+<!-- ==================================
+     MODALY – KOSMETIKA A MASÁŽE
+================================== -->
+
+<!-- 1. ENZYMATICKÁ KÚRA -->
+<dialog id="service-modal-1" class="service-modal">
+  <div class="service-modal-content">
+    <button type="button" class="service-modal-close" aria-label="Zavřít">&times;</button>
+    <h2>Enzymatická kúra se třemi séry</h2>
+    <div class="service-modal-line"></div>
+    <div class="service-modal-text">
+      <p>Biofáze je jedinečná metoda přírodní péče o pleť, která využívá účinky synergicky propojených směsí éterických olejů. Jejich působení ovlivňuje enzymatické procesy přirozeně probíhající v pokožce, pomáhá omezovat oxidační stres, podporuje její ochranné funkce a přirozenou regeneraci. Je vhodná jako samostatné ošetření i jako součást komplexní kosmetické péče.</p>
+    </div>
+    <a href="#kontakt" class="service-modal-order">Objednat se</a>
+  </div>
+</dialog>
+
+<!-- 2. EPILACE TĚLA -->
+<dialog id="service-modal-2" class="service-modal">
+  <div class="service-modal-content">
+    <button type="button" class="service-modal-close" aria-label="Zavřít">&times;</button>
+    <h2>Epilace těla - šetrné odstranění chloupků</h2>
+    <div class="service-modal-line"></div>
+    <div class="service-modal-text">
+      <p>Epilaci provádím pomocí teplého vosku určeného i pro citlivou pokožku. Vosk chloupky zachytí a odstraní i s kořínky, díky čemuž zůstává pokožka déle hladká a jemná než při běžném holení.</p>
+      <p>Ošetření provádím podle vybrané partie a citlivosti pokožky. Vhodné je pro epilaci nohou, rukou, podpaží, zad, hrudníku i dalších oblastí těla.</p>
+    </div>
+    <a href="#kontakt" class="service-modal-order">Objednat se</a>
+  </div>
+</dialog>
+
+<!-- 3. OBOČÍ A ŘASY -->
+<dialog id="service-modal-3" class="service-modal">
+  <div class="service-modal-content">
+    <button type="button" class="service-modal-close" aria-label="Zavřít">&times;</button>
+    <h2>Korekce obočí a barvení obočí a řas</h2>
+    <div class="service-modal-line"></div>
+    <div class="service-modal-text">
+      <p>Korekci obočí provádím úpravou tvaru a odstraněním přebytečných chloupků tak, aby obočí harmonicky doplňovalo rysy obličeje.</p>
+      <p>Barvení obočí a řas pomáhá zvýraznit výraz tváře a očí.</p>
+    </div>
+    <a href="#kontakt" class="service-modal-order">Objednat se</a>
+  </div>
+</dialog>
+
+<!-- 4. VÝUKA LÍČENÍ -->
+<dialog id="service-modal-4" class="service-modal">
+  <div class="service-modal-content">
+    <button type="button" class="service-modal-close" aria-label="Zavřít">&times;</button>
+    <h2>Individuální výuka denního a večerního líčení</h2>
+    <div class="service-modal-line"></div>
+    <div class="service-modal-text">
+      <p>Naučím vás, jak se líčit tak, abyste se cítila krásně, přirozeně a sama sebou.</p>
+      <p>Společně se zaměříme na denní nebo večerní líčení, které podtrhne vaše přednosti, jemně zvýrazní rysy obličeje a bude odpovídat vašemu stylu i příležitosti.</p>
+      <p>Ukážu vám, jak správně připravit pleť, vybrat vhodné odstíny a pracovat s dekorativní kosmetikou. Krok za krokem si jednotlivé postupy vyzkoušíte, abyste je později dokázala snadno využít i při každodenním líčení.</p>
+    </div>
+    <a href="#kontakt" class="service-modal-order">Objednat se</a>
+  </div>
+</dialog>
+
+<!-- 5. TĚLOVÝ ZÁBAL -->
+<dialog id="service-modal-5" class="service-modal">
+  <div class="service-modal-content">
+    <button type="button" class="service-modal-close" aria-label="Zavřít">&times;</button>
+    <h2>Tělový zábal proti celulitidě</h2>
+    <div class="service-modal-line"></div>
+    <div class="service-modal-text">
+      <p>Dopřejte svému tělu intenzivní pečující rituál zaměřený na problematické partie, zejména stehna, hýždě a boky. Speciální tělový zábal podporuje prokrvení pokožky, stimuluje její přirozené funkce a pomáhá zlepšovat vzhled pokožky se sklony k celulitidě.</p>
+      <p>Během ošetření se aktivní přípravky aplikují na vybrané partie těla a následně se pokožka zabalí, aby mohly účinné složky působit. Péče je zaměřena na podporu pevnějšího, hladšího a pružnějšího vzhledu pokožky.</p>
+    </div>
+    <a href="#kontakt" class="service-modal-order">Objednat se</a>
+  </div>
+</dialog>
+
+<!-- 6. RELAXAČNÍ MASÁŽ ALFA -->
+<dialog id="service-modal-6" class="service-modal">
+  <div class="service-modal-content">
+    <button type="button" class="service-modal-close" aria-label="Zavřít">&times;</button>
+    <h2>Relaxační masáž s využitím hladiny Alfa</h2>
+    <div class="service-modal-line"></div>
+    <div class="service-modal-text">
+      <p>Masáž je zaměřena na uvolnění svalového napětí, zklidnění nervového systému a zmírnění důsledků každodenního stresu a psychického přetížení. Využívá pomalé, plynulé a citlivé doteky, které pomáhají navodit příjemný pocit bezpečí, klidu a vnitřní rovnováhy.</p>
+      <p>Hladina Alfa označuje stav uvolněné bdělosti, který je přirozeně spojený s odpočinkem, zklidněním a meditativním naladěním.</p>
+    </div>
+    <a href="#kontakt" class="service-modal-order">Objednat se</a>
+  </div>
+</dialog>
+
+<!-- 7. ENERGETICKÁ AROMATERAPIE -->
+<dialog id="service-modal-7" class="service-modal">
+  <div class="service-modal-content">
+    <button type="button" class="service-modal-close" aria-label="Zavřít">&times;</button>
+    <h2>Terapeutické ošetření pomocí energetické aromaterapie</h2>
+    <div class="service-modal-line"></div>
+    <div class="service-modal-text">
+      <p>Jeho zvláštností je podvědomý výběr terapeutických karet. Klient si intuitivně vybírá karty, které následně pomáhají sestavit individuální aromaterapeutickou kompozici podle jeho aktuálního vnitřního rozpoložení. Každá karta nese vlastní symboliku a souvislost s energetickými centry, elementy a rostlinnými esencemi.</p>
+      <p>Vybrané éterické oleje se propojují do osobní vonné kompozice, která se stává součástí samotného ošetření. Vůně, dotek a chvíle zklidnění vytvářejí prostor pro uvolnění, sebepoznání a vnímání vlastních potřeb.</p>
+    </div>
+    <a href="#kontakt" class="service-modal-order">Objednat se</a>
+  </div>
+</dialog>
+
+<!-- 8. LIFTINGOVÁ MASÁŽ -->
+<dialog id="service-modal-8" class="service-modal">
+  <div class="service-modal-content">
+    <button type="button" class="service-modal-close" aria-label="Zavřít">&times;</button>
+    <h2>Liftingová masáž obličeje s lávovými kameny</h2>
+    <div class="service-modal-line"></div>
+    <div class="service-modal-text">
+      <p>Speciální liftingová masáž, která propojuje účinky manuálních masážních technik s příjemným teplem lávových kamenů. Je zaměřena na uvolnění obličejových svalů, podporu prokrvení a stimulaci pokožky.</p>
+      <p>Jemné, cílené masážní tahy v kombinaci s teplem pomáhají uvolnit napětí v oblasti obličeje, podpořit pružnost pokožky a zvýraznit její přirozené kontury.</p>
+    </div>
+    <a href="#kontakt" class="service-modal-order">Objednat se</a>
+  </div>
+</dialog>
+
+<!-- 9. REFLEXNÍ MASÁŽ OBLIČEJE -->
+<dialog id="service-modal-9" class="service-modal">
+  <div class="service-modal-content">
+    <button type="button" class="service-modal-close" aria-label="Zavřít">&times;</button>
+    <h2>Masáž obličeje s využitím reflexních zón</h2>
+    <div class="service-modal-line"></div>
+    <div class="service-modal-text">
+      <p>Masáž propojující stimulaci reflexních zón s principy energetických drah v těle. Vychází z poznatků tradičních celostních přístupů, podle kterých jsou jednotlivé oblasti těla vzájemně propojené.</p>
+      <p>Zaměřuji se především na oblast obličeje, krku a dekoltu, kde pomocí jemných masážních technik pracuji s vybranými reflexními body.</p>
+      <p>V rámci komplexního rituálu lze ošetření rozšířit také o reflexní oblasti dlaní nebo chodidel. Jednotlivé postupy a přípravky propojuji podle charakteru ošetření a aktuálních potřeb klienta.</p>
+    </div>
+    <a href="#kontakt" class="service-modal-order">Objednat se</a>
+  </div>
+</dialog>
+
+<!-- 10. ANTISTRESOVÁ MASÁŽ -->
+<dialog id="service-modal-10" class="service-modal">
+  <div class="service-modal-content">
+    <button type="button" class="service-modal-close" aria-label="Zavřít">&times;</button>
+    <h2>Antistresová masáž hlavy, šíje a zad</h2>
+    <div class="service-modal-line"></div>
+    <div class="service-modal-text">
+      <p>Dopřejte si chvíli hlubokého uvolnění a odpočinku. Masáž propojuje jemné i cílenější masážní hmaty zaměřené na oblast zad, ramen, šíje a hlavy, kde se často hromadí napětí spojené se stresem, jednostrannou zátěží a každodenním shonem.</p>
+      <p>Plynulé masážní techniky pomáhají uvolnit ztuhlé svaly, zmírnit pocit napětí v oblasti krku a ramen a navodit příjemné zklidnění těla i mysli.</p>
+    </div>
+    <a href="#kontakt" class="service-modal-order">Objednat se</a>
+  </div>
+</dialog>
+
+
 <!-- MERUŇKOVÝ PRUH S CITÁTEM -->
 <section class="quote-section">
   <div class="quote-inner">
@@ -2938,6 +3193,55 @@ modal.addEventListener("close", () => {
     modal.close();
   });
 });
+
+    
+/* ==================================
+   MODALY – KOSMETIKA A MASÁŽE
+================================== */
+
+const serviceButtons = document.querySelectorAll(
+  ".services-section .service-link"
+);
+
+serviceButtons.forEach((button, index) => {
+  const modal = document.getElementById(`service-modal-${index + 1}`);
+
+  if (!modal) return;
+
+  const closeButton = modal.querySelector(".service-modal-close");
+  const orderButton = modal.querySelector(".service-modal-order");
+
+  // Otevření modalu
+  button.addEventListener("click", () => {
+    modal.showModal();
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+  });
+
+  // Obnovení scrollování po zavření
+  modal.addEventListener("close", () => {
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+  });
+
+  // Zavření křížkem
+  closeButton.addEventListener("click", () => {
+    modal.close();
+  });
+
+  // Zavření kliknutím mimo modal
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.close();
+    }
+  });
+
+  // Zavření při kliknutí na Objednat se
+  orderButton.addEventListener("click", () => {
+    modal.close();
+  });
+});
+
 
 
   </script>
