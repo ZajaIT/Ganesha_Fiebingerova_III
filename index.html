@@ -880,23 +880,6 @@ max-width: none;
   overflow: hidden;
 }
 
-.voucher-image::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-
-  background: linear-gradient(
-    to right,
-    #FFF1E5 0%,
-    rgba(255, 241, 229, 0.95) 5%,
-    rgba(255, 241, 229, 0.65) 15%,
-    rgba(255, 241, 229, 0.25) 27%,
-    transparent 40%
-  );
-}
-
 .voucher-image img {
   position: absolute;
   inset: 0;
@@ -1896,10 +1879,6 @@ body:has(.nav-links.open) {
 
 .voucher-button {
   margin-top: 10px;
-}
-
-.voucher-image::before {
-  display: none;
 }
 
 /* KONTAKT – MOBIL */
