@@ -200,6 +200,64 @@ max-width: none;
       background: transparent;
       cursor: pointer;
     }
+    
+/* ==================================
+   HERO – ÚVODNÍ ANIMACE
+================================== */
+
+@keyframes heroPhotoReveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes heroContentReveal {
+  from {
+    opacity: 0;
+    translate: 0 25px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/* Fotografie na pozadí */
+.hero {
+  animation: heroPhotoReveal 1.3s ease both;
+}
+
+/* Postupné najíždění obsahu */
+.hero-title-image {
+  animation: heroContentReveal 0.9s ease 0.3s both;
+}
+
+.hero-subtitle {
+  animation: heroContentReveal 0.9s ease 0.5s both;
+}
+
+.hero-description {
+  animation: heroContentReveal 0.9s ease 0.7s both;
+}
+
+.hero-button {
+  animation: heroContentReveal 0.9s ease 0.9s both;
+}
+
+/* Respektování nastavení omezeného pohybu */
+@media (prefers-reduced-motion: reduce) {
+  .hero,
+  .hero-title-image,
+  .hero-subtitle,
+  .hero-description,
+  .hero-button {
+    animation: none;
+  }
+}
+
 
     /* HERO TEXT */
     .hero-content {
