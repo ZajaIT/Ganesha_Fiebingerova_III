@@ -1303,7 +1303,6 @@ max-width: none;
   margin-top: 12px;
 }
 
-/* Zarovnání všech cen na stejnou výšku – PC */
 @media (min-width: 901px) {
   .time-care-description {
     display: flex;
@@ -1315,6 +1314,21 @@ max-width: none;
     margin-top: auto;
     padding-top: 12px;
   }
+}
+
+@media (max-width: 900px) {
+
+  .time-care-description {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .time-care-description p.time-care-price {
+    margin-top: auto;
+    padding-top: 12px;
+  }
+
 }
 
 
@@ -1904,6 +1918,9 @@ body:has(.nav-links.open) {
 }
 
 .time-care-item:nth-child(3)::before {
+  display: none;
+}
+      .time-care-item:nth-child(5)::before {
   display: none;
 }
 
