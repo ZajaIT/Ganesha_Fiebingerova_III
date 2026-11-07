@@ -1574,6 +1574,15 @@ max-width: none;
   text-transform: uppercase;
   cursor: default;
 }
+    
+.contact-form button {
+  transition: filter .25s ease;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  filter: brightness(1.12);
+}
 
 /* COPYRIGHT */
 
@@ -3284,9 +3293,9 @@ uvolnění a péči, která respektuje vaše potřeby
         <textarea name="message" rows="3"
                   placeholder="Vaše zpráva"></textarea>
 
-        <button type="button" disabled>
-          Odeslat zprávu
-        </button>
+        <button type="button">
+  Odeslat zprávu
+</button>
       </form>
     </div>
 
