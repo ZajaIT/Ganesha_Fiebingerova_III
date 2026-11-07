@@ -225,9 +225,18 @@ max-width: none;
   }
 }
 
-/* Fotografie na pozadí */
+/* Fotografie na pozadí – jemné oddálení */
 .hero {
-  animation: heroPhotoReveal 1.3s ease both;
+  animation: heroPhotoZoom 1.8s ease-out both;
+}
+
+@keyframes heroPhotoZoom {
+  from {
+    background-size: 104% auto;
+  }
+  to {
+    background-size: 100% auto;
+  }
 }
 
 /* Postupné najíždění obsahu */
