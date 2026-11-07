@@ -1490,6 +1490,12 @@ body:has(.nav-links.open) {
 
 .time-care-heading {
   padding-right: 0;
+  text-align: center;
+}
+
+.time-care-line {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .time-care-heading h2 {
@@ -1497,7 +1503,19 @@ body:has(.nav-links.open) {
 }
 
 .time-care-options {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.time-care-item {
+  grid-column: span 2;
+}
+
+.time-care-item:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.time-care-item:nth-child(5) {
+  grid-column: 4 / span 2;
 }
 
 .time-care-item {
@@ -1863,9 +1881,17 @@ body:has(.nav-links.open) {
 }
 
 .time-care-options {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   column-gap: 0;
   row-gap: 45px;
+}
+
+.time-care-item {
+  grid-column: span 2;
+}
+
+.time-care-item:nth-child(5) {
+  grid-column: 2 / span 2;
 }
 
 .time-care-item {
