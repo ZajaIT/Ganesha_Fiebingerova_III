@@ -1915,7 +1915,15 @@ body:has(.nav-links.open) {
 }
 
 .time-care-item:nth-child(5) {
-  grid-column: 2 / span 2;
+  grid-column: 1 / -1;
+  width: 100%;
+  min-height: auto;
+  padding: 0 20px;
+}
+
+.time-care-item:nth-child(5) .time-care-description {
+  max-width: 320px;
+  margin: 18px auto 22px;
 }
 
 .time-care-item {
