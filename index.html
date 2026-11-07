@@ -607,6 +607,33 @@ max-width: none;
   line-height: 1.8;
   text-align: left;
 }
+    #time-modal-30 .time-modal-text {
+  text-align: center;
+}
+
+    
+/* MODAL 30 MINUT – VÝBĚR OŠETŘENÍ */
+
+#time-modal-30 .time-modal-choices {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+#time-modal-30 .time-modal-choices div {
+  font-size: 15px;
+  font-weight: 600;
+  color: #3b302d;
+}
+
+#time-modal-30 .time-modal-choices span {
+  font-size: 11px;
+  font-weight: 400;
+  color: #b85d3e;
+  line-height: 1.3;
+}
+
 
 .time-modal-price {
   margin-top: 25px;
@@ -2186,9 +2213,15 @@ uvolnění a péči, která respektuje vaše potřeby
 
     <div class="time-modal-line"></div>
 
-    <p class="time-modal-text">
-      Korekce obočí+barvení obočí a řas, nebo aktivní hydratace, nebo epilace lýtek, nebo epilace obličeje
-    </p>
+    <div class="time-modal-text time-modal-choices">
+  <div>korekce obočí + barvení obočí a řas</div>
+  <span>nebo</span>
+  <div>aktivní hydratace</div>
+  <span>nebo</span>
+  <div>epilace lýtek</div>
+  <span>nebo</span>
+  <div>epilace obličeje</div>
+</div>
 
     <p class="time-modal-price">od 500 Kč</p>
 
