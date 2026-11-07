@@ -1315,26 +1315,15 @@ max-width: none;
   overflow: hidden;
 }
 
-
 .contact-inner {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 8.5%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 75px;
-  align-items: start;
+  grid-template-columns: 34% 40% 26%;
+  align-items: center;
 }
-
-.contact-left {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 30px;
-  min-width: 0;
-}
-
 
 .contact-heading {
   transform: translateX(-38px);
@@ -1483,77 +1472,6 @@ max-width: none;
   height: auto;
   object-fit: contain;
 }
-
-    
-/* ==================================
-   KONTAKTNÍ FORMULÁŘ – PC
-================================== */
-
-.contact-form-column {
-  width: 100%;
-  min-width: 0;
-  padding-top: 5px;
-}
-
-.contact-form-column h3 {
-  font-family: "Playfair Display", serif;
-  font-size: 36px;
-  font-weight: 500;
-  color: #751b18;
-  margin-bottom: 32px;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 12px 0;
-  border: none;
-  border-bottom: 1px solid #edc9b4;
-  border-radius: 0;
-  outline: none;
-  background: transparent;
-  font-family: "Montserrat", sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #3b302d;
-  resize: vertical;
-  transition: border-color 0.25s ease;
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: #8f8079;
-  opacity: 1;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-bottom-color: #e58e36;
-}
-
-.contact-form button {
-  align-self: flex-start;
-  margin-top: 12px;
-  padding: 17px 30px;
-  border: none;
-  border-radius: 40px;
-  background: linear-gradient(90deg, #e58e36, #b85d3e);
-  color: #ffffff;
-  font-family: "Montserrat", sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  cursor: default;
-  opacity: 1;
-}
-
 
 /* FOOTER – PC */
 .site-footer {
@@ -3135,8 +3053,6 @@ uvolnění a péči, která respektuje vaše potřeby
 <section class="contact-section" id="kontakt">
   <div class="contact-inner">
 
-    <div class="contact-left">
-
     <div class="contact-heading">
       <span class="contact-label">Kontakt</span>
       <h2>Těším se<br>na vaši návštěvu.</h2>
@@ -3234,33 +3150,8 @@ uvolnění a péči, která respektuje vaše potřeby
   <img src="outside.jpg" alt="Exteriér kosmetického studia Ganesha" loading="lazy">
 </div>
 
-    
-    </div>
-
-    <!-- KONTAKTNÍ FORMULÁŘ -->
-    <div class="contact-form-column">
-      <h3>Napište mi</h3>
-
-      <form class="contact-form">
-        <input type="text" name="name"
-               placeholder="Vaše jméno" autocomplete="name">
-
-        <input type="email" name="email"
-               placeholder="Váš e-mail" autocomplete="email">
-
-        <input type="tel" name="phone"
-               placeholder="Telefon" autocomplete="tel">
-
-        <textarea name="message" rows="4"
-                  placeholder="Vaše zpráva"></textarea>
-
-        <button type="button" disabled>Odeslat zprávu</button>
-      </form>
-    </div>
-
-  </div><!-- konec contact-inner -->
+  </div>
 </section>
-
 
 <!-- FOOTER -->
 <footer class="site-footer">
